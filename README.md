@@ -2,7 +2,7 @@
 
 Encrypt files and make them accessible with a client-side decryption UI. 
 
-**Read the [security notes](#security-notes)!**
+**Read the [security notes](#security-notes)!** The keys are only as secure as your connection!
 
 **[See an example](https://alexkrolick.github.io/plainsight/?key=helloworld&token=opensesame&salt=F6zh2FiMANg)!**
 
@@ -58,6 +58,7 @@ https://alexkrolick.github.io/plainsight/?key=helloworld&token=opensesame&salt=F
 - The command-line utilities require Node and a few packages from NPM. See [package.json](package.json) for details.
 
 ## Security Notes
+- The keys are only as secure as your connection! HTTP URL parameters are visible to anyone snooping local network traffic, and HTTPS is only as secure as the certificate authority. If you want to share a page over an insecure/untrusted connection, have the the recipient save the page and open the file locally. Send the token separately over a secure channel.
 - This is mostly a novelty UI and hasn't been validated significantly.
 - Leaving encrypted files out in public may not be that good of an idea. A repeated password or brute force attack could result in the files being decrypted without your knowledge.
 - Don't trust blindly in the package manager - audit the dependencies installed by NPM.
