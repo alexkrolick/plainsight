@@ -6,16 +6,16 @@ var urlParams = search === '' ? {} : JSON.parse('{"' + decodeURI(search).replace
 
 var key = urlParams.key;
 var token = urlParams.token;
-var salt = base64url_unescape(urlParams.salt); // base64 salt should be escaped to avoid invalid url chars (/+=)
+var salt = urlParams.salt; 
 
 document.addEventListener("DOMContentLoaded", function() { 
-  if (config.hasOwnProperty(key)) {
+  if (config.hasOwnProperty(key) && key && salt && token) {
     var msg = {
       key: key,
       token: token,
       data: config[key],
     };
-    msg.data.salt = salt;
+    msg.data.salt = base64url_unescape(salt); // base64 salt should be escaped to avoid invalid url chars (/+=)
     msg.datastring = JSON.stringify(msg.data);
     window.setTimeout(setMessage.bind(this, 'Decrypting ...\n\n' + msg.data.ct), 100);
     decrypt(msg)
