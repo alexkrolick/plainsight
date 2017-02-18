@@ -43,14 +43,14 @@ node ./decrypt.js # follow prompts for filename and password
 1. Open [index.html](index.html) in a web browser. Provide URL params for key, token (password), and salt:
   
   ```shell
-  open ./index.html?key=helloworld&token=opensesame&salt=F6zh2FiMANg
+  open ./index.html#key=helloworld&token=opensesame&salt=F6zh2FiMANg
   ```
   
 1. Publish the files to a static webserver and give someone the decryption url
 
 
 ## Example
-https://alexkrolick.github.io/plainsight/?key=helloworld&token=opensesame&salt=F6zh2FiMANg
+https://alexkrolick.github.io/plainsight#key=helloworld&token=opensesame&salt=F6zh2FiMANg
 
 ## Dependencies
 

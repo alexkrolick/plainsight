@@ -1,8 +1,8 @@
 var sjcl = window.sjcl;
 var config = window.config; // encrypted data
 
-var search = location.search.substring(1);
-var urlParams = search === '' ? {} : JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+var hash = location.hash.substring(1);
+var urlParams = hash === '' ? {} : JSON.parse('{"' + decodeURI(hash).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
 
 var key = urlParams.key;
 var token = urlParams.token;
